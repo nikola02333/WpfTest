@@ -28,12 +28,14 @@ namespace WpfApp1SqurrielGithub
 
         }
 
-        private async Task CheckForUpdate()
+         private async Task CheckForUpdate()
         {
-            using (var manager = new UpdateManager(""))
-            {
-                 await manager.UpdateApp();
-            }
+            var manager = await UpdateManager.GitHubUpdateManager(@"https://github.com/nikola02333/WpfTest");
+            await manager.UpdateApp();
+            //using (var manager = new UpdateManager(""))
+            //{
+            //     await manager.UpdateApp();
+            //}
         }
     }
 }
